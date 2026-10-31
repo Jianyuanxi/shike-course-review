@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="拾课是一款基于 seekdb 与 PowerContext 的课程资料复习助手：混合检索回到原文，持续记忆发现薄弱点，并生成可核对的复习清单。">
+  <meta name="theme-color" content="#123c33">
+  <title>拾课 · 课程资料复习助手</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23123c33'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='36' fill='%23d9f99d'%3E%E6%8B%BE%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header">
+    <div class="shell nav-wrap">
+      <a class="brand" href="#top" aria-label="拾课首页">
+        <span class="brand-mark" aria-hidden="true">拾</span>
+        <span><strong>拾课</strong><small>COURSE REVIEW</small></span>
+      </a>
+      <nav class="main-nav" aria-label="页面导航">
+        <a href="#features">功能</a>
+        <a href="#architecture">架构</a>
+        <a href="#demo">演示</a>
+        <a href="#evidence">验证</a>
+      </nav>
+      <a class="repo-link" href="https://github.com/Jianyuanxi/ob2026-powercontext/tree/2026-competition-ecosystem/qoder" target="_blank" rel="noopener noreferrer">代码仓库 <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero shell" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> OceanBase 数据库大赛 · Qoder 生态赛题</p>
+        <h1>找到的不只是原文，<br><em>还有你的薄弱点。</em></h1>
+        <p class="hero-lead">拾课把散落的 Markdown、TXT、PDF 课程资料变成可检索、可追溯的学习档案。seekdb 负责找到相关段落，PowerContext 记住反复查询的知识点。</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#demo">查看真实演示 <span aria-hidden="true">↓</span></a>
+          <a class="button button-secondary" href="#run">在本地运行</a>
+        </div>
+        <ul class="hero-notes" aria-label="项目特点">
+          <li>本地 BGE 向量</li>
+          <li>无需 API Key</li>
+          <li>Docker 一键启动依赖</li>
+        </ul>
+      </div>
+      <figure class="hero-figure">
+        <div class="window-bar">
+          <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>127.0.0.1:8080 · 本机真实运行</span>
+          <span class="live-label"><i></i> READY</span>
+        </div>
+        <button class="image-button hero-image" type="button" data-zoom="assets/dashboard.png" data-caption="拾课首页：真实导入的 4 个文件、9 个原文块与 2 个薄弱知识点。" aria-label="放大查看拾课首页截图">
+          <img src="assets/dashboard.png" alt="拾课首页，显示资料导入、最近常查、我的资料库和薄弱点复习清单" width="1554" height="6464">
+        </button>
+        <figcaption><span>01 / 产品首页</span><span>截图来自开发记录，不是效果图</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="snapshot" aria-label="本机验收数据快照">
+      <div class="shell snapshot-grid">
+        <div><strong>4</strong><span>个示例文件</span></div>
+        <div><strong>9</strong><span>个原文块</span></div>
+        <div><strong>5</strong><span>段检索结果</span></div>
+        <div><strong>2</strong><span>个真实薄弱点</span></div>
+        <p>本机验收快照 · 2026-10-31<br>不是线上用户统计</p>
+      </div>
+    </section>
+
+    <section class="section shell problem-section">
+      <div class="section-heading">
+        <p class="section-index">01 / 为什么做拾课</p>
+        <h2>资料越来越多，<br>复习却仍在原地。</h2>
+      </div>
+      <div class="problem-list">
+        <article>
+          <span class="problem-number">01</span>
+          <div><h3>找到了，却回不去</h3><p>搜索结果只有答案片段，没有文件名、页码和段落，难以回到教材核对上下文。</p></div>
+        </article>
+        <article>
+          <span class="problem-number">02</span>
+          <div><h3>查过了，却记不住</h3><p>同一个概念反复搜索，普通检索工具不会告诉你：这里正是需要复习的地方。</p></div>
+        </article>
+        <article>
+          <span class="problem-number">03</span>
+          <div><h3>有清单，却没依据</h3><p>复习建议如果无法关联原文与记忆记录，就难以判断它为什么出现。</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section feature-section" id="features">
+      <div class="shell">
+        <div class="section-heading horizontal-heading">
+          <div><p class="section-index">02 / 核心功能</p><h2>从资料导入，到针对复习。</h2></div>
+          <p>每一步都留下出处或运行记录。<br>检索与记忆不是装饰，而是实际参与结果。</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card feature-wide">
+            <span class="feature-icon" aria-hidden="true">↳</span>
+            <p class="feature-kicker">INGEST</p>
+            <h3>整个文件夹，一次汇入</h3>
+            <p>识别 Markdown 标题、TXT 段落与 PDF 页码；按段落切块，SHA-256 去重，变化文件可重新导入。</p>
+            <ul class="file-types" aria-label="支持的文件类型"><li>.md</li><li>.txt</li><li>.pdf</li></ul>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true">⌕</span>
+            <p class="feature-kicker">RETRIEVE</p>
+            <h3>关键词 + 向量混合检索</h3>
+            <p>seekdb 两路召回，经 RRF 融合，返回最相关的 5 段原文，而不是生成一段无出处的回答。</p>
+          </article>
+          <article class="feature-card accent-card">
+            <span class="feature-icon" aria-hidden="true">↻</span>
+            <p class="feature-kicker">REMEMBER</p>
+            <h3>反复查询，形成薄弱点</h3>
+            <p>每个学习空间有独立 Scope。知识点第二次出现时升级为薄弱点，并为相近候选提供轻量优先权。</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true">▤</span>
+            <p class="feature-kicker">REVIEW</p>
+            <h3>复习清单直接回到原文</h3><p>展示查询次数、最近问题、Artifact Revision 和关联资料；命中块可展开前后各 2 块上下文。</p>
+          </article>
+          <article class="feature-card feature-wide audit-feature">
+            <div><span class="feature-icon" aria-hidden="true">✓</span><p class="feature-kicker">AUDIT</p><h3>每个结果，都能解释</h3><p>页面同步展示 RRF 排名、最终排名、薄弱点加权，以及 PowerContext HTTP 状态、Revision 和 Request ID。</p></div>
+            <div class="mini-log" aria-label="真实检索审计摘要"><span>RRF RANK <b>#1</b></span><span>WEAK BOOST <b>+0.0005</b></span><span>FINAL RANK <b>#1</b></span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="architecture">
+      <div class="section-heading horizontal-heading">
+        <div><p class="section-index">03 / 技术分工</p><h2>检索归检索，记忆归记忆。</h2></div>
+        <p>FastAPI 串联两条真实数据链路，<br>本地模型在 CPU 上生成 512 维向量。</p>
+      </div>
+      <div class="flow" aria-label="应用数据流">
+        <div><span>01</span><strong>课程资料</strong><small>MD · TXT · PDF</small></div><i aria-hidden="true">→</i>
+        <div><span>02</span><strong>seekdb</strong><small>原文 · 向量 · 混合检索</small></div><i aria-hidden="true">→</i>
+        <div><span>03</span><strong>PowerContext</strong><small>查询 · 知识点 · Revision</small></div><i aria-hidden="true">→</i>
+        <div><span>04</span><strong>复习清单</strong><small>薄弱点 · 原文引用</small></div>
+      </div>
+      <div class="architecture-grid">
+        <article class="architecture-card seekdb-card">
+          <div class="architecture-title"><span>SEEKDB</span><span class="status-pill">检索引擎</span></div>
+          <h3>保存事实，找到原文。</h3>
+          <ul>
+            <li><span>01</span><p><strong>Collection</strong> 保存 document、512 维 embedding 与出处 metadata。</p></li>
+            <li><span>02</span><p>全文索引与 HNSW 向量索引两路召回，使用 RRF 融合排序。</p></li>
+            <li><span>03</span><p>保存文档、检索候选与记忆操作审计，支持回查上下文。</p></li>
+          </ul>
+        </article>
+        <article class="architecture-card memory-card">
+          <div class="architecture-title"><span>POWERCONTEXT 1.4.1</span><span class="status-pill">学习记忆</span></div>
+          <h3>保存过程，发现反复。</h3>
+          <ul>
+            <li><span>01</span><p><strong>Scope</strong> 隔离学习空间，<strong>Source</strong> 保存每次查询证据。</p></li>
+            <li><span>02</span><p>每个知识点对应一个 Atomic Memory，记录次数、最近问题与原文引用。</p></li>
+            <li><span>03</span><p>GET + ETag + PUT 更新，产生可核对的不可变 Revision。</p></li>
+          </ul>
+        </article>
+      </div>
+      <div class="formula"><span>检索排序</span><code>final_score = 1 / (60 + rrf_rank) + weak_boost</code><p>命中既有薄弱点原文时 <code>weak_boost = 0.0005</code>，只调整相近候选，不压过更相关的新资料。</p></div>
+    </section>
+
+    <section class="section demo-section" id="demo">
+      <div class="shell">
+        <div class="section-heading horizontal-heading light-heading">
+          <div><p class="section-index">04 / 真实演示</p><h2>看结果，也看证据。</h2></div>
+          <p>以下均为本机实际浏览器运行截图。<br>点击图片可放大查看。</p>
+        </div>
+        <div class="gallery">
+          <figure class="gallery-main">
+            <button class="image-button" type="button" data-zoom="assets/search-results.png" data-caption="混合检索最终版本：5 段结果、明确出处、RRF 排名与 +0.0005 薄弱点加权。" aria-label="放大查看混合检索结果截图">
+              <img src="assets/search-results.png" alt="混合检索结果，显示五条原文、文件名、PDF 页码、RRF 排名和薄弱点加权" width="1554" height="1347" loading="lazy">
+            </button>
+            <figcaption><span>01 · 混合检索</span><strong>5 段原文，出处与加权清晰可见</strong></figcaption>
+          </figure>
+          <figure>
+            <button class="image-button" type="button" data-zoom="assets/source-context.png" data-caption="原文上下文：命中块高亮，并显示同文档相邻块。" aria-label="放大查看原文上下文截图">
+              <img src="assets/source-context.png" alt="原文上下文弹窗，高亮命中块并显示相邻原文" width="1554" height="1347" loading="lazy">
+            </button>
+            <figcaption><span>02 · 原文上下文</span><strong>从命中段落回到相邻内容</strong></figcaption>
+          </figure>
+          <figure>
+            <button class="image-button" type="button" data-zoom="assets/pdf-search.png" data-caption="PDF 检索：第 1 页与第 2 页是不同原文块，页码准确保留。" aria-label="放大查看 PDF 页码检索截图">
+              <img src="assets/pdf-search.png" alt="PDF 页码检索结果，明确显示第 1 页和第 2 页" width="1530" height="5159" loading="lazy">
+            </button>
+            <figcaption><span>03 · PDF 页码</span><strong>双页资料不跨页合并</strong></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="evidence">
+      <div class="section-heading horizontal-heading">
+        <div><p class="section-index">05 / 验证证据</p><h2>不是“应该能跑”，<br>而是已经跑过。</h2></div>
+        <p>完整 API 响应与审计快照随代码保存，<br>可按照验证样例重复操作。</p>
+      </div>
+      <div class="evidence-layout">
+        <div class="test-result">
+          <div class="test-score"><strong>10</strong><span>项测试通过</span></div>
+          <code>10 passed in 2.50s</code>
+          <p>最终本机回归结果</p>
+          <ul class="check-list">
+            <li>重复导入：4 个文件全部跳过</li>
+            <li>上下文：1 个命中块 + 2 个相邻块</li>
+            <li>PDF：准确定位第 2 页</li>
+            <li>新空间并发初始化：仅 1 个 Scope</li>
+            <li>空白查询与非法标识：HTTP 422</li>
+          </ul>
+        </div>
+        <div class="evidence-table-wrap">
+          <div class="table-heading"><strong>真实运行快照</strong><span>2026-10-31</span></div>
+          <dl class="evidence-list">
+            <div><dt>混合检索 Search ID</dt><dd><code>e054c40a-1a45-43da-bf52-4b6d1775314d</code></dd></div>
+            <div><dt>PDF 检索 Search ID</dt><dd><code>a76544b4-f456-474e-a0f2-226b83065ed2</code></dd></div>
+            <div><dt>混合检索记忆</dt><dd>查询 5 次 · Revision 5</dd></div>
+            <div><dt>PDF 知识点记忆</dt><dd>查询 2 次 · Revision 2</dd></div>
+            <div><dt>审计快照</dt><dd>8 次检索 · 64 条候选 · 52 条记忆操作</dd></div>
+          </dl>
+          <p class="evidence-note">这是明确时间点的历史证据；后续真实查询会继续累计 Revision。</p>
+          <a class="text-link" href="https://github.com/Jianyuanxi/ob2026-powercontext/blob/2026-competition-ecosystem/qoder/%E9%AA%8C%E8%AF%81%E6%A0%B7%E4%BE%8B.md" target="_blank" rel="noopener noreferrer">阅读完整验证样例 <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section run-section" id="run">
+      <div class="shell run-layout">
+        <div class="run-copy">
+          <p class="section-index">06 / 本地运行</p>
+          <h2>把拾课放进<br>你的课程文件夹。</h2>
+          <p>需要 Docker、uv 与 Python 3.11–3.12。首次构建需要访问 GitHub，首次生成向量需要下载 BGE 模型；之后使用本地缓存。</p>
+          <div class="no-key"><span aria-hidden="true">✓</span><strong>不需要 LLM 或 embedding API Key</strong></div>
+          <a class="button button-light" href="https://github.com/Jianyuanxi/ob2026-powercontext/tree/2026-competition-ecosystem/qoder" target="_blank" rel="noopener noreferrer">打开代码仓库 <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="run-steps">
+          <article><span>1</span><div><h3>准备配置</h3><div class="code-wrap"><pre><code>cp .env.example .env</code></pre><button type="button" data-copy="cp .env.example .env" aria-label="复制准备配置命令">复制</button></div></div></article>
+          <article><span>2</span><div><h3>启动 seekdb 与 PowerContext</h3><div class="code-wrap"><pre><code>docker compose up -d --build</code></pre><button type="button" data-copy="docker compose up -d --build" aria-label="复制启动依赖命令">复制</button></div></div></article>
+          <article><span>3</span><div><h3>安装后端依赖</h3><div class="code-wrap"><pre><code>uv sync --directory backend</code></pre><button type="button" data-copy="uv sync --directory backend" aria-label="复制安装依赖命令">复制</button></div></div></article>
+          <article><span>4</span><div><h3>启动应用</h3><div class="code-wrap"><pre><code>uv run --env-file ../.env --directory backend uvicorn app.main:app --host 127.0.0.1 --port 8080</code></pre><button type="button" data-copy="uv run --env-file ../.env --directory backend uvicorn app.main:app --host 127.0.0.1 --port 8080" aria-label="复制启动应用命令">复制</button></div></div></article>
+          <p class="open-local">然后打开 <code>http://127.0.0.1:8080</code>，点击“导入示例资料”。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-wrap">
+      <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true">拾</span><span><strong>拾课</strong><small>LESS SEARCHING. MORE LEARNING.</small></span></a>
+      <p>seekdb × PowerContext × FastAPI<br>OceanBase 数据库大赛 Qoder 生态赛题</p>
+      <a class="text-link" href="https://github.com/Jianyuanxi/ob2026-powercontext/blob/2026-competition-ecosystem/qoder/README.md" target="_blank" rel="noopener noreferrer">项目 README <span aria-hidden="true">↗</span></a>
+    </div>
+  </footer>
+
+  <dialog class="image-dialog" aria-label="截图放大预览">
+    <button class="dialog-close" type="button" aria-label="关闭截图预览">×</button>
+    <img src="assets/dashboard.png" alt="">
+    <p></p>
+  </dialog>
+  <div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

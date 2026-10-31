@@ -1,0 +1,8 @@
+{
+  "status": "ready",
+  "seekdb": {
+    "value": 1
+  },
+  "powercontext": "ready",
+  "embedding_model": "BAAI/bge-small-zh-v1.5"
+}

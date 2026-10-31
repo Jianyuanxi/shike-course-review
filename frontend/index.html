@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="用 seekdb 混合检索与 PowerContext 记忆整理课程资料，定位薄弱知识点。" />
+    <title>拾课 · 课程资料复习助手</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="/" aria-label="拾课首页">
+          <span class="brand-mark">拾</span>
+          <span><strong>拾课</strong><small>课程资料复习助手</small></span>
+        </a>
+        <div class="service-status" title="seekdb、PowerContext 与本地向量模型状态">
+          <span class="status-dot" id="status-dot"></span>
+          <span id="service-status">正在检查服务</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">LESS SEARCHING. MORE LEARNING.</p>
+          <h1>把散落的课程资料，<br />变成清晰的复习路径。</h1>
+          <p class="hero-copy">混合检索找到原文出处，持续记忆发现反复查询的薄弱点。所有资料都在你的本地学习空间。</p>
+        </div>
+        <form class="user-panel" id="user-form">
+          <label for="user-id">当前学习空间</label>
+          <div class="user-input-row">
+            <input id="user-id" name="user_id" value="demo" pattern="[A-Za-z0-9_\-]{1,64}" maxlength="64" required />
+            <button class="button button-dark" type="submit">进入</button>
+          </div>
+          <p>使用字母、数字、下划线或短横线；不同标识的资料与记忆相互隔离。</p>
+        </form>
+      </section>
+
+      <div class="workspace-grid">
+        <div class="primary-column">
+          <section class="card import-card">
+            <div class="section-heading">
+              <span class="section-number">01</span>
+              <div><h2>汇入课程资料</h2><p>Markdown、TXT、PDF 按段落切块，保留页码与出处。</p></div>
+            </div>
+            <div class="import-actions">
+              <label class="button button-primary" for="file-input" id="file-picker">选择文件夹并导入</label>
+              <input id="file-input" type="file" accept=".md,.txt,.pdf" webkitdirectory directory multiple hidden />
+              <button class="button button-secondary" id="import-samples" type="button">导入示例资料</button>
+            </div>
+            <div class="import-status" id="import-status">单个文件不超过 15 MiB，未变化的文件会自动跳过。</div>
+          </section>
+
+          <section class="card search-card">
+            <div class="section-heading">
+              <span class="section-number">02</span>
+              <div><h2>问一个知识点</h2><p>seekdb 同时召回关键词与向量结果，再用 RRF 融合排序。</p></div>
+            </div>
+            <form id="search-form" class="search-form">
+              <label class="sr-only" for="query">输入课程问题</label>
+              <input id="query" type="search" maxlength="500" placeholder="例如：混合检索为什么要结合关键词和向量？" required />
+              <button class="button button-primary" id="search-button" type="submit">检索原文</button>
+            </form>
+            <div class="query-examples">
+              <span>试试</span>
+              <button type="button" data-query="混合检索为什么要结合关键词和向量">混合检索</button>
+              <button type="button" data-query="PowerContext 如何保存学习记忆">学习记忆</button>
+              <button type="button" data-query="本地向量模型需要 API Key 吗">本地向量</button>
+            </div>
+            <div class="search-meta" id="search-meta" hidden></div>
+            <div class="results-list" id="search-results">
+              <div class="empty-state"><span class="empty-glyph">?</span><h3>从一个问题开始</h3><p>这里会显示最相关的 5 段原文，每段都能展开查看前后文。</p></div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="secondary-column">
+          <section class="card memory-card">
+            <div class="card-title-row"><div><p class="mini-label">POWERCONTEXT</p><h2>最近常查</h2></div><span class="count-badge" id="weak-count">0</span></div>
+            <p class="card-intro">同一知识点查询两次以上，会成为你的薄弱点。</p>
+            <div id="weak-points" class="weak-points"><p class="muted">还没有薄弱点，去检索一个问题吧。</p></div>
+          </section>
+
+          <section class="card documents-card">
+            <div class="card-title-row"><div><p class="mini-label">SEEKDB</p><h2>我的资料库</h2></div><span class="count-badge" id="document-count">0</span></div>
+            <div class="document-stats" id="document-stats">尚未导入资料</div>
+            <div id="documents-list" class="documents-list"><p class="muted">导入文件后，可在这里核对切块数量。</p></div>
+          </section>
+        </aside>
+      </div>
+
+      <section class="card review-card">
+        <div class="section-heading">
+          <span class="section-number">03</span>
+          <div><h2>薄弱点复习清单</h2><p>根据 PowerContext 中的记忆生成，直接回到对应原文。</p></div>
+        </div>
+        <div id="review-list" class="review-list"><div class="empty-inline">反复查询后，这里会自动生成复习清单。</div></div>
+      </section>
+
+      <section class="card audit-card">
+        <div class="section-heading audit-heading">
+          <span class="section-number">04</span>
+          <div><h2>技术运行记录</h2><p>检索候选、薄弱点加权和 PowerContext HTTP 读写均来自真实运行日志。</p></div>
+          <button class="button button-quiet" id="refresh-audit" type="button">刷新记录</button>
+        </div>
+        <div class="audit-grid">
+          <div><h3>最近检索</h3><div id="search-logs" class="audit-list"><p class="muted">暂无检索记录</p></div></div>
+          <div><h3>记忆读写</h3><div id="memory-logs" class="audit-list"><p class="muted">暂无记忆记录</p></div></div>
+        </div>
+        <div class="candidate-section"><h3>最近一次检索的候选排名</h3><div id="candidate-logs" class="table-wrap"><p class="muted">完成一次检索后可查看 RRF 与加权明细。</p></div></div>
+      </section>
+    </main>
+
+    <footer class="container footer"><span>拾课 · 让每一次查询都沉淀为复习线索</span><span>FastAPI / seekdb / PowerContext / BGE</span></footer>
+
+    <dialog id="context-dialog" class="context-dialog">
+      <div class="dialog-header"><div><p class="mini-label">SOURCE CONTEXT</p><h2>原文与上下文</h2></div><button class="dialog-close" id="close-context" type="button" aria-label="关闭">×</button></div>
+      <div id="context-content" class="context-content"></div>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  </body>
+</html>

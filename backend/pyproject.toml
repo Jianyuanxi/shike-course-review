@@ -1,0 +1,24 @@
+[project]
+name = "course-review-assistant"
+version = "0.1.0"
+description = "Course material review assistant powered by seekdb and PowerContext"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+  "fastapi==0.115.12",
+  "uvicorn==0.34.2",
+  "pyseekdb==1.4.0.post1",
+  "pymysql==1.1.1",
+  "httpx==0.28.1",
+  "sentence-transformers==5.0.0",
+  "pypdf==5.5.0",
+  "python-multipart==0.0.20",
+]
+
+[dependency-groups]
+dev = [
+  "pytest==8.3.5",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

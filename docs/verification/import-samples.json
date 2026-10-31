@@ -1,0 +1,74 @@
+{
+  "outcomes": [
+    {
+      "file": "01-seekdb混合检索.md",
+      "status": "skipped",
+      "chunks": 3
+    },
+    {
+      "file": "02-PowerContext记忆.md",
+      "status": "skipped",
+      "chunks": 3
+    },
+    {
+      "file": "03-本地文本向量.txt",
+      "status": "skipped",
+      "chunks": 1
+    },
+    {
+      "file": "04-检索评估速查.pdf",
+      "status": "skipped",
+      "chunks": 2
+    }
+  ],
+  "documents": [
+    {
+      "document_id": "8f4d4cf2-7ec4-437b-8f3a-548c9537f6fa",
+      "user_id": "demo",
+      "file_name": "04-检索评估速查.pdf",
+      "relative_path": "04-检索评估速查.pdf",
+      "file_type": "pdf",
+      "content_hash": "aa2bd4ec292f05bf55ff2f3767f1989645a9f93bc9e18aa05b2e990f8e3c4993",
+      "chunk_count": 2,
+      "import_status": "ready",
+      "error_message": null,
+      "imported_at": "2026-10-31T17:54:40"
+    },
+    {
+      "document_id": "f74f82af-e338-4f33-982c-a1dc51cfa155",
+      "user_id": "demo",
+      "file_name": "01-seekdb混合检索.md",
+      "relative_path": "01-seekdb混合检索.md",
+      "file_type": "md",
+      "content_hash": "f89c383138310d252211a5b94ddcf07a67813fabbe29f2f30884c3ee7a1a2aac",
+      "chunk_count": 3,
+      "import_status": "ready",
+      "error_message": null,
+      "imported_at": "2026-10-31T17:33:02"
+    },
+    {
+      "document_id": "3f494672-b053-4c36-8a42-835b95db2f58",
+      "user_id": "demo",
+      "file_name": "02-PowerContext记忆.md",
+      "relative_path": "02-PowerContext记忆.md",
+      "file_type": "md",
+      "content_hash": "afd7bca42f7c334911f691385436d29c0b04f0a0a39f81455a419db9e788d421",
+      "chunk_count": 3,
+      "import_status": "ready",
+      "error_message": null,
+      "imported_at": "2026-10-31T17:33:02"
+    },
+    {
+      "document_id": "a38b0057-2811-4c16-932b-bb1f0e41d3e2",
+      "user_id": "demo",
+      "file_name": "03-本地文本向量.txt",
+      "relative_path": "03-本地文本向量.txt",
+      "file_type": "txt",
+      "content_hash": "bb4abed96d2cb569887c29b03e597305a1a954c6cd5dcb0a56c2fd1df880598d",
+      "chunk_count": 1,
+      "import_status": "ready",
+      "error_message": null,
+      "imported_at": "2026-10-31T17:33:02"
+    }
+  ]
+}

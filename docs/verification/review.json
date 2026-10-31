@@ -1,0 +1,295 @@
+{
+  "weak_points": [
+    {
+      "concept": "seekdb 混合检索",
+      "concept_key": "seekdb 混合检索",
+      "query_count": 5,
+      "first_queried_at": "2026-10-31T09:34:06.195235+00:00",
+      "last_queried_at": "2026-10-31T10:13:35.545731+00:00",
+      "recent_queries": [
+        "混合检索为什么要结合关键词和向量",
+        "混合检索为什么要结合关键词和向量",
+        "混合检索为什么要结合关键词和向量",
+        "混合检索为什么要结合关键词和向量",
+        "混合检索为什么要结合关键词和向量"
+      ],
+      "chunk_ids": [
+        "3ff52a9c-a3ee-5ed0-8789-217d3a1f4e9f",
+        "f8e5505a-5ddb-5dd6-afa6-39df0b6b7368",
+        "12f47310-2fa2-5946-9434-14aab6cd0735",
+        "4451c94b-a831-5777-b41d-55942af7bf3a",
+        "2664c5c4-f39b-5a3e-9647-bc3efd02a7e5"
+      ],
+      "sources": [
+        {
+          "chunk_id": "3ff52a9c-a3ee-5ed0-8789-217d3a1f4e9f",
+          "source": "01-seekdb混合检索.md · 段落 0–2",
+          "knowledge_point": "seekdb 混合检索"
+        },
+        {
+          "chunk_id": "f8e5505a-5ddb-5dd6-afa6-39df0b6b7368",
+          "source": "01-seekdb混合检索.md · 段落 3–4",
+          "knowledge_point": "向量索引与全文索引"
+        },
+        {
+          "chunk_id": "12f47310-2fa2-5946-9434-14aab6cd0735",
+          "source": "04-检索评估速查.pdf · 第 1 页",
+          "knowledge_point": "04-检索评估速查"
+        },
+        {
+          "chunk_id": "4451c94b-a831-5777-b41d-55942af7bf3a",
+          "source": "03-本地文本向量.txt · 段落 0–5",
+          "knowledge_point": "03-本地文本向量"
+        },
+        {
+          "chunk_id": "2664c5c4-f39b-5a3e-9647-bc3efd02a7e5",
+          "source": "01-seekdb混合检索.md · 段落 5–6",
+          "knowledge_point": "检索质量检查"
+        }
+      ],
+      "last_search_id": "e054c40a-1a45-43da-bf52-4b6d1775314d",
+      "artifact_ref": "atomic-memory/art_c05429fa420b4522a22aedb63d632d51@5",
+      "materials": [
+        {
+          "chunk_id": "3ff52a9c-a3ee-5ed0-8789-217d3a1f4e9f",
+          "text": "混合检索把关键词匹配与向量语义匹配结合起来。关键词检索适合查找明确的术语、函数名和文件名，向量检索则能发现措辞不同但含义相近的段落。两路结果通过 RRF（Reciprocal Rank Fusion，倒数排名融合）合并，避免只依赖单一信号。\n\n在 pyseekdb 中，Collection 的 document 字段保存原文，embedding 字段保存向量，metadata 保存出处等结构化信息。hybrid_search 的 query 部分负责全文检索，knn 部分负责向量检索，rank 部分可以配置 RRF。\n\n复习时要区分“全文条件过滤后做向量排序”和“两路独立召回后融合”。后者允许一个段落即使没有命中完整关键词，也能依靠语义相似度进入候选集。",
+          "metadata": {
+            "user_id": "demo",
+            "file_name": "01-seekdb混合检索.md",
+            "file_type": "md",
+            "chunk_index": 0,
+            "document_id": "f74f82af-e338-4f33-982c-a1dc51cfa155",
+            "page_number": null,
+            "content_hash": "f89c383138310d252211a5b94ddcf07a67813fabbe29f2f30884c3ee7a1a2aac",
+            "section_path": "seekdb 混合检索",
+            "paragraph_end": 2,
+            "relative_path": "01-seekdb混合检索.md",
+            "knowledge_point": "seekdb 混合检索",
+            "paragraph_start": 0
+          },
+          "source": "01-seekdb混合检索.md · 段落 0–2"
+        },
+        {
+          "chunk_id": "f8e5505a-5ddb-5dd6-afa6-39df0b6b7368",
+          "text": "HNSW 是常用的近似最近邻向量索引。余弦距离关注向量方向，适合配合归一化文本向量。中文全文检索需要合适的分词器，pyseekdb 创建 Collection 时使用 IK 分词。\n\n出处元数据不参与向量计算，但可以用于用户隔离、按文档过滤以及找回上下文。常见元数据包括文件名、页码、段落号和块序号。",
+          "metadata": {
+            "user_id": "demo",
+            "file_name": "01-seekdb混合检索.md",
+            "file_type": "md",
+            "chunk_index": 1,
+            "document_id": "f74f82af-e338-4f33-982c-a1dc51cfa155",
+            "page_number": null,
+            "content_hash": "f89c383138310d252211a5b94ddcf07a67813fabbe29f2f30884c3ee7a1a2aac",
+            "section_path": "向量索引与全文索引",
+            "paragraph_end": 4,
+            "relative_path": "01-seekdb混合检索.md",
+            "knowledge_point": "向量索引与全文索引",
+            "paragraph_start": 3
+          },
+          "source": "01-seekdb混合检索.md · 段落 3–4"
+        },
+        {
+          "chunk_id": "12f47310-2fa2-5946-9434-14aab6cd0735",
+          "text": "检索质量评估速查\n为什么不仅要看五条结果\n评估课程资料检索时，不能只检查接口是否返回五个段落。还要核对命中内容是否真正回答\n问题、文件出处是否准确，以及能否从命中块回到相邻上下文。对 PDF\n资料，页码是定位原文的重要依据。\n关键词与语义召回\n明确术语适合用关键词检查，同义改写适合用向量检索检查。复习时可以分别使用包含术语\n的问题和换一种说法的问题，观察混合检索是否能召回同一知识点。\n可核对的运行记录\n检索日志应保存原始问题、候选数量、RRF\n排名、薄弱点加权和最终排名。这样既能解释结果顺序，也能确认 seekdb\n的混合检索确实参与，而不是仅返回静态示例。",
+          "metadata": {
+            "user_id": "demo",
+            "file_name": "04-检索评估速查.pdf",
+            "file_type": "pdf",
+            "chunk_index": 0,
+            "document_id": "8f4d4cf2-7ec4-437b-8f3a-548c9537f6fa",
+            "page_number": 1,
+            "content_hash": "aa2bd4ec292f05bf55ff2f3767f1989645a9f93bc9e18aa05b2e990f8e3c4993",
+            "section_path": "04-检索评估速查",
+            "paragraph_end": 0,
+            "relative_path": "04-检索评估速查.pdf",
+            "knowledge_point": "04-检索评估速查",
+            "paragraph_start": 0
+          },
+          "source": "04-检索评估速查.pdf · 第 1 页"
+        },
+        {
+          "chunk_id": "4451c94b-a831-5777-b41d-55942af7bf3a",
+          "text": "本地文本向量\n\n本地 embedding 模型把一段文字转换为固定长度的数值向量。语义相近的文本通常在向量空间中也更接近。使用本地模型的好处是调用不需要 API Key，课程内容不必发送到第三方 embedding 服务。\n\nBGE 中文检索模型\n\nBAAI/bge-small-zh-v1.5 是面向中文检索的小型文本向量模型，输出 512 维向量。进行短查询对长文档的检索时，模型卡建议给查询添加检索指令，文档段落不需要添加相同指令。向量归一化后可以配合余弦相似度使用。\n\n首次运行需要下载模型权重，后续可以使用本地缓存。导入和检索必须使用同一个模型及相同维度；更换模型后应重建向量，避免不同向量空间被错误混用。\n\n来源：BAAI/bge-small-zh-v1.5 官方模型卡。本文为依据公开模型说明整理的原创课程笔记，并非模型卡原文。",
+          "metadata": {
+            "user_id": "demo",
+            "file_name": "03-本地文本向量.txt",
+            "file_type": "txt",
+            "chunk_index": 0,
+            "document_id": "a38b0057-2811-4c16-932b-bb1f0e41d3e2",
+            "page_number": null,
+            "content_hash": "bb4abed96d2cb569887c29b03e597305a1a954c6cd5dcb0a56c2fd1df880598d",
+            "section_path": "03-本地文本向量",
+            "paragraph_end": 5,
+            "relative_path": "03-本地文本向量.txt",
+            "knowledge_point": "03-本地文本向量",
+            "paragraph_start": 0
+          },
+          "source": "03-本地文本向量.txt · 段落 0–5"
+        },
+        {
+          "chunk_id": "2664c5c4-f39b-5a3e-9647-bc3efd02a7e5",
+          "text": "评估检索结果时，不仅要看是否返回五条内容，还要检查出处是否准确、上下文是否完整，以及同义问题能否召回同一知识点。检索日志应保存原始问题、候选排名和最终排名，便于复盘。\n\n来源：OceanBase seekdb 与 pyseekdb 官方 README。本文为依据公开文档整理的原创课程笔记，并非官方文档原文。",
+          "metadata": {
+            "user_id": "demo",
+            "file_name": "01-seekdb混合检索.md",
+            "file_type": "md",
+            "chunk_index": 2,
+            "document_id": "f74f82af-e338-4f33-982c-a1dc51cfa155",
+            "page_number": null,
+            "content_hash": "f89c383138310d252211a5b94ddcf07a67813fabbe29f2f30884c3ee7a1a2aac",
+            "section_path": "检索质量检查",
+            "paragraph_end": 6,
+            "relative_path": "01-seekdb混合检索.md",
+            "knowledge_point": "检索质量检查",
+            "paragraph_start": 5
+          },
+          "source": "01-seekdb混合检索.md · 段落 5–6"
+        }
+      ]
+    },
+    {
+      "concept": "04-检索评估速查",
+      "concept_key": "04-检索评估速查",
+      "query_count": 2,
+      "first_queried_at": "2026-10-31T09:59:29.946164+00:00",
+      "last_queried_at": "2026-10-31T10:13:35.880564+00:00",
+      "recent_queries": [
+        "PDF 页码验收",
+        "PDF 页码验收"
+      ],
+      "chunk_ids": [
+        "12f47310-2fa2-5946-9434-14aab6cd0735",
+        "728a63dc-7fd9-5a91-83a0-dccc1a2d60dc",
+        "f8e5505a-5ddb-5dd6-afa6-39df0b6b7368",
+        "2664c5c4-f39b-5a3e-9647-bc3efd02a7e5",
+        "3ff52a9c-a3ee-5ed0-8789-217d3a1f4e9f"
+      ],
+      "sources": [
+        {
+          "chunk_id": "12f47310-2fa2-5946-9434-14aab6cd0735",
+          "source": "04-检索评估速查.pdf · 第 1 页",
+          "knowledge_point": "04-检索评估速查"
+        },
+        {
+          "chunk_id": "728a63dc-7fd9-5a91-83a0-dccc1a2d60dc",
+          "source": "04-检索评估速查.pdf · 第 2 页",
+          "knowledge_point": "04-检索评估速查"
+        },
+        {
+          "chunk_id": "f8e5505a-5ddb-5dd6-afa6-39df0b6b7368",
+          "source": "01-seekdb混合检索.md · 段落 3–4",
+          "knowledge_point": "向量索引与全文索引"
+        },
+        {
+          "chunk_id": "2664c5c4-f39b-5a3e-9647-bc3efd02a7e5",
+          "source": "01-seekdb混合检索.md · 段落 5–6",
+          "knowledge_point": "检索质量检查"
+        },
+        {
+          "chunk_id": "3ff52a9c-a3ee-5ed0-8789-217d3a1f4e9f",
+          "source": "01-seekdb混合检索.md · 段落 0–2",
+          "knowledge_point": "seekdb 混合检索"
+        }
+      ],
+      "last_search_id": "a76544b4-f456-474e-a0f2-226b83065ed2",
+      "artifact_ref": "atomic-memory/art_667fd42523ec43f8acf9a7778b59b64e@2",
+      "materials": [
+        {
+          "chunk_id": "12f47310-2fa2-5946-9434-14aab6cd0735",
+          "text": "检索质量评估速查\n为什么不仅要看五条结果\n评估课程资料检索时，不能只检查接口是否返回五个段落。还要核对命中内容是否真正回答\n问题、文件出处是否准确，以及能否从命中块回到相邻上下文。对 PDF\n资料，页码是定位原文的重要依据。\n关键词与语义召回\n明确术语适合用关键词检查，同义改写适合用向量检索检查。复习时可以分别使用包含术语\n的问题和换一种说法的问题，观察混合检索是否能召回同一知识点。\n可核对的运行记录\n检索日志应保存原始问题、候选数量、RRF\n排名、薄弱点加权和最终排名。这样既能解释结果顺序，也能确认 seekdb\n的混合检索确实参与，而不是仅返回静态示例。",
+          "metadata": {
+            "user_id": "demo",
+            "file_name": "04-检索评估速查.pdf",
+            "file_type": "pdf",
+            "chunk_index": 0,
+            "document_id": "8f4d4cf2-7ec4-437b-8f3a-548c9537f6fa",
+            "page_number": 1,
+            "content_hash": "aa2bd4ec292f05bf55ff2f3767f1989645a9f93bc9e18aa05b2e990f8e3c4993",
+            "section_path": "04-检索评估速查",
+            "paragraph_end": 0,
+            "relative_path": "04-检索评估速查.pdf",
+            "knowledge_point": "04-检索评估速查",
+            "paragraph_start": 0
+          },
+          "source": "04-检索评估速查.pdf · 第 1 页"
+        },
+        {
+          "chunk_id": "728a63dc-7fd9-5a91-83a0-dccc1a2d60dc",
+          "text": "复习记录核对\n从记忆回到原文\n当同一知识点被反复查询，复习清单应列出查询次数和对应原文出处。点击出处后，需要能\n看到命中段落及其上下文，避免只记住一个孤立结论。\nPDF 页码验收\n本段位于示例 PDF 的第 2 页。导入后，检索“PDF\n页码验收”应返回本段，并把出处显示为“04-检索评估速查.pdf · 第 2 页”。第 1 页与第 2\n页必须切成不同原文块，不能跨页合并。\n来源与改动\n本文是依据 OceanBase seekdb、pyseekdb 与 PowerContext\n公开文档编写的原创验收资料，并非官方文档原文。示例用于验证 PDF\n文本提取、按页切块和出处展示。",
+          "metadata": {
+            "user_id": "demo",
+            "file_name": "04-检索评估速查.pdf",
+            "file_type": "pdf",
+            "chunk_index": 1,
+            "document_id": "8f4d4cf2-7ec4-437b-8f3a-548c9537f6fa",
+            "page_number": 2,
+            "content_hash": "aa2bd4ec292f05bf55ff2f3767f1989645a9f93bc9e18aa05b2e990f8e3c4993",
+            "section_path": "04-检索评估速查",
+            "paragraph_end": 0,
+            "relative_path": "04-检索评估速查.pdf",
+            "knowledge_point": "04-检索评估速查",
+            "paragraph_start": 0
+          },
+          "source": "04-检索评估速查.pdf · 第 2 页"
+        },
+        {
+          "chunk_id": "f8e5505a-5ddb-5dd6-afa6-39df0b6b7368",
+          "text": "HNSW 是常用的近似最近邻向量索引。余弦距离关注向量方向，适合配合归一化文本向量。中文全文检索需要合适的分词器，pyseekdb 创建 Collection 时使用 IK 分词。\n\n出处元数据不参与向量计算，但可以用于用户隔离、按文档过滤以及找回上下文。常见元数据包括文件名、页码、段落号和块序号。",
+          "metadata": {
+            "user_id": "demo",
+            "file_name": "01-seekdb混合检索.md",
+            "file_type": "md",
+            "chunk_index": 1,
+            "document_id": "f74f82af-e338-4f33-982c-a1dc51cfa155",
+            "page_number": null,
+            "content_hash": "f89c383138310d252211a5b94ddcf07a67813fabbe29f2f30884c3ee7a1a2aac",
+            "section_path": "向量索引与全文索引",
+            "paragraph_end": 4,
+            "relative_path": "01-seekdb混合检索.md",
+            "knowledge_point": "向量索引与全文索引",
+            "paragraph_start": 3
+          },
+          "source": "01-seekdb混合检索.md · 段落 3–4"
+        },
+        {
+          "chunk_id": "2664c5c4-f39b-5a3e-9647-bc3efd02a7e5",
+          "text": "评估检索结果时，不仅要看是否返回五条内容，还要检查出处是否准确、上下文是否完整，以及同义问题能否召回同一知识点。检索日志应保存原始问题、候选排名和最终排名，便于复盘。\n\n来源：OceanBase seekdb 与 pyseekdb 官方 README。本文为依据公开文档整理的原创课程笔记，并非官方文档原文。",
+          "metadata": {
+            "user_id": "demo",
+            "file_name": "01-seekdb混合检索.md",
+            "file_type": "md",
+            "chunk_index": 2,
+            "document_id": "f74f82af-e338-4f33-982c-a1dc51cfa155",
+            "page_number": null,
+            "content_hash": "f89c383138310d252211a5b94ddcf07a67813fabbe29f2f30884c3ee7a1a2aac",
+            "section_path": "检索质量检查",
+            "paragraph_end": 6,
+            "relative_path": "01-seekdb混合检索.md",
+            "knowledge_point": "检索质量检查",
+            "paragraph_start": 5
+          },
+          "source": "01-seekdb混合检索.md · 段落 5–6"
+        },
+        {
+          "chunk_id": "3ff52a9c-a3ee-5ed0-8789-217d3a1f4e9f",
+          "text": "混合检索把关键词匹配与向量语义匹配结合起来。关键词检索适合查找明确的术语、函数名和文件名，向量检索则能发现措辞不同但含义相近的段落。两路结果通过 RRF（Reciprocal Rank Fusion，倒数排名融合）合并，避免只依赖单一信号。\n\n在 pyseekdb 中，Collection 的 document 字段保存原文，embedding 字段保存向量，metadata 保存出处等结构化信息。hybrid_search 的 query 部分负责全文检索，knn 部分负责向量检索，rank 部分可以配置 RRF。\n\n复习时要区分“全文条件过滤后做向量排序”和“两路独立召回后融合”。后者允许一个段落即使没有命中完整关键词，也能依靠语义相似度进入候选集。",
+          "metadata": {
+            "user_id": "demo",
+            "file_name": "01-seekdb混合检索.md",
+            "file_type": "md",
+            "chunk_index": 0,
+            "document_id": "f74f82af-e338-4f33-982c-a1dc51cfa155",
+            "page_number": null,
+            "content_hash": "f89c383138310d252211a5b94ddcf07a67813fabbe29f2f30884c3ee7a1a2aac",
+            "section_path": "seekdb 混合检索",
+            "paragraph_end": 2,
+            "relative_path": "01-seekdb混合检索.md",
+            "knowledge_point": "seekdb 混合检索",
+            "paragraph_start": 0
+          },
+          "source": "01-seekdb混合检索.md · 段落 0–2"
+        }
+      ]
+    }
+  ]
+}

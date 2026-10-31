@@ -1,0 +1,101 @@
+{
+  "weak_points": [
+    {
+      "concept": "seekdb 混合检索",
+      "concept_key": "seekdb 混合检索",
+      "query_count": 5,
+      "first_queried_at": "2026-10-31T09:34:06.195235+00:00",
+      "last_queried_at": "2026-10-31T10:13:35.545731+00:00",
+      "recent_queries": [
+        "混合检索为什么要结合关键词和向量",
+        "混合检索为什么要结合关键词和向量",
+        "混合检索为什么要结合关键词和向量",
+        "混合检索为什么要结合关键词和向量",
+        "混合检索为什么要结合关键词和向量"
+      ],
+      "chunk_ids": [
+        "3ff52a9c-a3ee-5ed0-8789-217d3a1f4e9f",
+        "f8e5505a-5ddb-5dd6-afa6-39df0b6b7368",
+        "12f47310-2fa2-5946-9434-14aab6cd0735",
+        "4451c94b-a831-5777-b41d-55942af7bf3a",
+        "2664c5c4-f39b-5a3e-9647-bc3efd02a7e5"
+      ],
+      "sources": [
+        {
+          "chunk_id": "3ff52a9c-a3ee-5ed0-8789-217d3a1f4e9f",
+          "source": "01-seekdb混合检索.md · 段落 0–2",
+          "knowledge_point": "seekdb 混合检索"
+        },
+        {
+          "chunk_id": "f8e5505a-5ddb-5dd6-afa6-39df0b6b7368",
+          "source": "01-seekdb混合检索.md · 段落 3–4",
+          "knowledge_point": "向量索引与全文索引"
+        },
+        {
+          "chunk_id": "12f47310-2fa2-5946-9434-14aab6cd0735",
+          "source": "04-检索评估速查.pdf · 第 1 页",
+          "knowledge_point": "04-检索评估速查"
+        },
+        {
+          "chunk_id": "4451c94b-a831-5777-b41d-55942af7bf3a",
+          "source": "03-本地文本向量.txt · 段落 0–5",
+          "knowledge_point": "03-本地文本向量"
+        },
+        {
+          "chunk_id": "2664c5c4-f39b-5a3e-9647-bc3efd02a7e5",
+          "source": "01-seekdb混合检索.md · 段落 5–6",
+          "knowledge_point": "检索质量检查"
+        }
+      ],
+      "last_search_id": "e054c40a-1a45-43da-bf52-4b6d1775314d",
+      "artifact_ref": "atomic-memory/art_c05429fa420b4522a22aedb63d632d51@5"
+    },
+    {
+      "concept": "04-检索评估速查",
+      "concept_key": "04-检索评估速查",
+      "query_count": 2,
+      "first_queried_at": "2026-10-31T09:59:29.946164+00:00",
+      "last_queried_at": "2026-10-31T10:13:35.880564+00:00",
+      "recent_queries": [
+        "PDF 页码验收",
+        "PDF 页码验收"
+      ],
+      "chunk_ids": [
+        "12f47310-2fa2-5946-9434-14aab6cd0735",
+        "728a63dc-7fd9-5a91-83a0-dccc1a2d60dc",
+        "f8e5505a-5ddb-5dd6-afa6-39df0b6b7368",
+        "2664c5c4-f39b-5a3e-9647-bc3efd02a7e5",
+        "3ff52a9c-a3ee-5ed0-8789-217d3a1f4e9f"
+      ],
+      "sources": [
+        {
+          "chunk_id": "12f47310-2fa2-5946-9434-14aab6cd0735",
+          "source": "04-检索评估速查.pdf · 第 1 页",
+          "knowledge_point": "04-检索评估速查"
+        },
+        {
+          "chunk_id": "728a63dc-7fd9-5a91-83a0-dccc1a2d60dc",
+          "source": "04-检索评估速查.pdf · 第 2 页",
+          "knowledge_point": "04-检索评估速查"
+        },
+        {
+          "chunk_id": "f8e5505a-5ddb-5dd6-afa6-39df0b6b7368",
+          "source": "01-seekdb混合检索.md · 段落 3–4",
+          "knowledge_point": "向量索引与全文索引"
+        },
+        {
+          "chunk_id": "2664c5c4-f39b-5a3e-9647-bc3efd02a7e5",
+          "source": "01-seekdb混合检索.md · 段落 5–6",
+          "knowledge_point": "检索质量检查"
+        },
+        {
+          "chunk_id": "3ff52a9c-a3ee-5ed0-8789-217d3a1f4e9f",
+          "source": "01-seekdb混合检索.md · 段落 0–2",
+          "knowledge_point": "seekdb 混合检索"
+        }
+      ],
+      "last_search_id": "a76544b4-f456-474e-a0f2-226b83065ed2",
+      "artifact_ref": "atomic-memory/art_667fd42523ec43f8acf9a7778b59b64e@2"
+    }
+  ]
+}
