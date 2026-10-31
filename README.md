@@ -153,6 +153,8 @@ docker compose stop
 
 ## 项目介绍网站
 
+公开代码仓库：<https://github.com/Jianyuanxi/shike-course-review>
+
 Qoder Sites 公开地址：<https://shike-course-review-hbvu92d2jdk.qoder.zone>
 
 介绍站包含项目简介、痛点、核心功能、seekdb/PowerContext 分工、真实运行截图、验证证据、仓库链接和本地运行方法。静态源文件位于 `site/dist/`，公开访问与发布版验收记录见 [验证样例.md](验证样例.md)。
